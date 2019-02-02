@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RPS</title>
+    <style>
+        * {
+            text-align: center;
+        }
+
+        .hands {
+            width: 100px;
+            height: 100px;
+            font-size: 50px;
+            line-height: 90px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .player {
+            flex: 1;
+            text-align: center;
+        }
+
+        #playerOne {
+            transform: rotate(-90deg) rotateX(180deg);
+        }
+
+        #playerTwo {
+            transform: rotate(-90deg);
+        }
+
+        #players {
+            display: flex;
+            width: 500px;
+            margin: auto;
+        }
+
+        #results {
+            display: flex;
+            width: 200px;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<h1>Rock-Paper-Scissors</h1>
+<div id="players">
+    <div class="player">
+        <h2>You</h2>
+        Choice <select id="choice">
+        <option value="&#x270A;">Rock</option>
+        <option value="&#x270B;">Paper</option>
+        <option value="&#x270C;&#xFE0F;">Scissors️</option>
+    </select>
+    </div>
+
+    <div class="player">
+        <h2>CPU</h2>
+        Difficulty
+        <select id="difficulty">
+            <option>Easy</option>
+            <option selected>Medium</option>
+            <option>Hard</option>
+        </select>
+    </div>
+</div>
+<button id="button">Throw!</button>
+<div id="results">
+    <div class="hands" id="playerOne"></div>
+    <div class="hands" id="playerTwo"></div>
+</div>
+<h2 id="output"></h2>
+<script>
+	const Level = {
+		easy: 0,
+		medium: 1,
+		hard: 2
+	};
+
+	const Result = {
+		win: -1,
+		draw: 0,
+		lose: 1
+	};
+
+	function getResult(difficulty, options) {
+		const result = Math.floor(Math.random() * options.length) - 1; // -1 0 1
+		if (difficulty === Level.medium) {
+			// Even odds
+			return result;
+		}
+
+		const either = Math.abs(result); // 1 0 1
+		if (difficulty === Level.hard) {
+			// Never win, maybe draw
+			return either;
+		}
+
+		// Never lose, maybe draw
+		return -either;  // -1 0 -1
+	}
+
+	document.onreadystatechange = () => {
+		const playerOne = document.getElementById('playerOne');
+		const playerTwo = document.getElementById('playerTwo');
+		const choiceSelect = document.getElementById('choice');
+		const difficultySelect = document.getElementById('difficulty');
+		const button = document.getElementById('button');
+		const output = document.getElementById('output');
+
+		const options = choiceSelect.options;
+
+		button.addEventListener('click', () => {
+			const choice = choiceSelect.selectedIndex;
+			const difficulty = difficultySelect.selectedIndex;
+			const result = getResult(difficulty, options);
+			const cpu = (options.length + choice + result) % options.length;
+			playerOne.innerHTML = options[choice].value;
+			playerTwo.innerHTML = options[cpu].value;
+
+			switch (result) {
+				case Result.win:
+					output.innerHTML = 'Winner!! &#x1F600;&#x1F389;&#x1F64C;';
+					break;
+				case Result.draw:
+					output.innerHTML = 'You Tied &#x1F612;';
+					break;
+				case Result.lose:
+					output.innerHTML = 'You Lose &#x1F622;';
+					break;
+			}
+		});
+
+	};
+
+</script>
+</body>
+</html>
