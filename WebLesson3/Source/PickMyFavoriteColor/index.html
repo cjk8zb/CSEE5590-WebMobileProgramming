@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>PickMyFavoriteColor</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+
+<div id="container">
+    <h1>Color picker</h1>
+    <input aria-label="Color" id="color" type="text"/>
+    <button id="add-to-favorite">Add to favorites</button>
+    <div class="row">
+        <div class="column">
+            <div class="preview">
+            </div>
+        </div>
+        <div class="column">
+            <div id="colors">
+                <template>
+                    <div class="item added" style="background-color: inherit;"></div>
+                </template>
+            </div>
+        </div>
+        <br/>
+        <div class="color-code"></div>
+    </div>
+</div>
+
+<!--
+<script src="../shared/jquery-3.3.1.slim.js"></script>
+<script src="jquery/script.js"></script>
+-->
+<script src="es6/script.js"></script>
+
+</body>
+</html>

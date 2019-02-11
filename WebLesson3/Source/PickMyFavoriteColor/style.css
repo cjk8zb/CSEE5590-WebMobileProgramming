@@ -1,0 +1,113 @@
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    border-top: 5px solid #4c4066;
+    margin: 0 auto;
+    font-size: 14px;
+    color: #666666;
+}
+
+a {
+    text-decoration: none;
+}
+
+header {
+    text-align: center;
+    background-color: #fdfdfd;
+    border-bottom: 1px solid #e5e2e0;
+}
+
+button {
+    padding: 10px;
+    margin: 10px;
+    border: none;
+    font-size: 1.4em;
+}
+
+h1 {
+    color: #3b3b3b;
+    font-size: 3em;
+}
+
+#container {
+    width: 1040px;
+    margin: 0 auto;
+    min-height: 750px;
+}
+
+input[type='text'] {
+    height: 2.2em;
+    font-size: 2em;
+    width: 400px;
+    padding: 5px;
+}
+
+input[type='text']:before {
+    content: "Joe's Task:";
+}
+
+.row {
+    margin-top: 50px;
+}
+
+.row .column {
+    display: inline-block;
+    vertical-align: top;
+    width: 480px;
+}
+
+.preview {
+    height: 400px;
+    width: 400px;
+    padding: 20px;
+    border: 1px solid #bebebe;
+    font-size: 1.4em;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: all .25s ease-in-out;
+}
+
+.color-code {
+    padding: 10px;
+    margin-top: 10px;
+    font-size: 2.5em;
+    display: inline-block;
+    font-weight: bold;
+}
+
+footer {
+    padding-bottom: 10px;
+    border-bottom: 5px solid #4c4066;
+    position: absolute;
+    width: 100%;
+}
+
+#colors {
+    line-height: 0;
+}
+
+#colors .item {
+    display: inline-block;
+    padding: 10px;
+    color: white;
+    font-size: 0.7em;
+    text-transform: uppercase;
+    font-weight: bold;
+    position: relative;
+    transition: all .25s ease-in-out;
+    z-index: 1;
+    height: 90px;
+    width: 90px;
+    transform: scale(0.1);
+}
+
+#colors .item.added {
+    height: 90px;
+    width: 90px;
+    transform: scale(1.0);
+}
+
+#colors .item:hover {
+    z-index: 2;
+    transform: scale(1.125);
+}
