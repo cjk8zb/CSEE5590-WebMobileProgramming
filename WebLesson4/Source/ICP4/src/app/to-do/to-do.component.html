@@ -1,0 +1,31 @@
+<div class="container my-3 mx-auto p-0 text-white">
+  <h2>To Do List</h2>
+</div>
+
+<div class="container card my-3 mx-auto p-3">
+  <div class="input-group mb-0" *ngFor="let task of tasks; let i = index"
+       [(class.complete)]="task.complete">
+    <div class="input-group-prepend">
+      <div class="input-group-text  bg-transparent border-0">
+        <input type="checkbox" aria-label="Checkbox for following text input" [(ngModel)]="tasks[i].complete"
+               [checked]="task.complete" [ngModelOptions]="{standalone: true}">
+      </div>
+    </div>
+    <input type="text" class="form-control border-top-0 border-left-0 border-right-0 border-bottom"
+           [readOnly]="tasks[i].complete"
+           aria-label="Text input with checkbox" [(ngModel)]="tasks[i].name"
+           [value]="task.name" [ngModelOptions]="{standalone: true}">
+    <button (click)="delete(i)" class="btn"><span octicon="trashcan"></span></button>
+  </div>
+
+  <div class="input-group m-0 border-0">
+    <div class="input-group-prepend">
+      <div class="input-group-text bg-transparent border-0">
+        <input type="checkbox" aria-label="Checkbox for following text input" disabled>
+      </div>
+    </div>
+    <input #newItem type="text" class="form-control border-0" aria-label="Text input with checkbox"
+           placeholder="Enter a new item…" (blur)="addItem(newItem)" (keyup.enter)=addItem(newItem)>
+  </div>
+
+</div>

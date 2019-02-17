@@ -1,0 +1,11 @@
+<nav class="navbar navbar-dark bg-dark navbar-expand shadow-sm">
+
+  <span class="navbar-brand mb-0 h1">{{title}}</span>
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item" *ngFor="let page of pages" [routerLinkActive]="'active'">
+      <a class="nav-link" [routerLink]="page.route">{{page.title}}</a>
+    </li>
+  </ul>
+</nav>
+
+<router-outlet></router-outlet>

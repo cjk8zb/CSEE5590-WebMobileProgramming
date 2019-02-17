@@ -1,0 +1,32 @@
+<form id="calculator" (click)="clickHandler($event)" #formElement>
+
+  <output class="full-width">
+    <span #outputElement>{{output || 0}}</span>
+  </output>
+
+  <button type="button" id="clear" class="modifier"><span>AC</span></button>
+  <button type="button" id="negate" class="modifier"><span>&#x207a;&#x2044;&#x208b;</span></button>
+  <button type="button" id="percent" class="modifier"><span>%</span></button>
+  <button type="button" id="divide" class="operator"><span>&divide;</span></button>
+
+  <button type="button" id="number_7" class="number"><span>7</span></button>
+  <button type="button" id="number_8" class="number"><span>8</span></button>
+  <button type="button" id="number_9" class="number"><span>9</span></button>
+  <button type="button" id="times" class="operator"><span>&times;</span></button>
+
+  <button type="button" id="number_4" class="number"><span>4</span></button>
+  <button type="button" id="number_5" class="number"><span>5</span></button>
+  <button type="button" id="number_6" class="number"><span>6</span></button>
+  <button type="button" id="minus" class="operator"><span>&minus;</span></button>
+
+  <button type="button" id="number_1" class="number"><span>1</span></button>
+  <button type="button" id="number_2" class="number"><span>2</span></button>
+  <button type="button" id="number_3" class="number"><span>3</span></button>
+  <button type="button" id="plus" class="operator"><span>+</span></button>
+
+  <button type="button" id="number_0" class="number double-wide"><span>0</span></button>
+  <button type="button" id="point" class="number"><span>.</span></button>
+  <button type="button" id="equals" class="operator"><span>=</span></button>
+
+</form>
+
