@@ -1,0 +1,30 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+$ICP5-primary: mat-palette((
+  default: #2a65cc,
+  lighter: #6a92ff,
+  darker: #003c9a,
+  contrast: (
+    default: $light-primary-text,
+    lighter: $dark-primary-text,
+    darker: $light-primary-text
+  )
+), default, lighter, darker);
+
+$ICP5-accent: mat-palette((
+  default: #f2ce0d,
+  lighter: #ffff54,
+  darker: #bb9d00,
+  contrast: (
+    default: $dark-primary-text,
+    lighter: $dark-primary-text,
+    darker: $dark-primary-text
+  )
+), default, lighter, darker);
+
+$ICP5-theme: mat-light-theme($ICP5-primary, $ICP5-accent);
+@include angular-material-theme($ICP5-theme);
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

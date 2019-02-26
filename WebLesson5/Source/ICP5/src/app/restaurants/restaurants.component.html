@@ -1,0 +1,48 @@
+<form #formElement="ngForm" (ngSubmit)="search()"
+      gdAreas="query near submit | useCurrentLocation useCurrentLocation submit | data data data"
+      gdColumns="1fr 1fr auto" gdGap="1em">
+
+  <mat-form-field gdArea="query" appearance="standard">
+    <input matInput placeholder="Search for"
+           [(ngModel)]="query" name="query" required>
+  </mat-form-field>
+
+  <mat-form-field gdArea="near" appearance="standard">
+    <input matInput placeholder="Near"
+           [(ngModel)]="near" name="near"
+           [disabled]="currentLocation" required>
+  </mat-form-field>
+
+  <mat-checkbox gdArea="useCurrentLocation" name="useCurrentLocation"
+                (change)="toggleUseCurrentLocation($event)"
+                [disabled]="!isGeoLocationAvailable || determiningLocation">
+    Use current location.
+    <mat-error *ngIf="errorMessage">{{errorMessage}}</mat-error>
+    <mat-progress-bar *ngIf="determiningLocation" mode="indeterminate"></mat-progress-bar>
+  </mat-checkbox>
+
+  <button  mat-raised-button color="primary" gdArea="submit" type="submit" [disabled]="!formElement.form.valid">Search</button>
+
+  <mat-table gdArea="data" *ngIf="restaurants.length" [dataSource]='restaurants'>
+
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Name</mat-header-cell>
+      <mat-cell *matCellDef="let restaurant"> {{restaurant.name}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="address">
+      <mat-header-cell *matHeaderCellDef> Address</mat-header-cell>
+      <mat-cell *matCellDef="let restaurant"> {{restaurant.location.address}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="distance">
+      <mat-header-cell *matHeaderCellDef> Distance</mat-header-cell>
+      <mat-cell *matCellDef="let restaurant"> {{(restaurant.location.distance || 0) / 1000}} km</mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="columnsToDisplay"></mat-header-row>
+
+    <mat-row *matRowDef="let row; columns: columnsToDisplay"></mat-row>
+  </mat-table>
+
+</form>
