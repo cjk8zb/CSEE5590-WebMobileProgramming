@@ -1,0 +1,16 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <a mat-icon-button *ngFor="let action of leftActions" [routerLink]="action.routerLink">
+      <mat-icon class="icon">{{action.icon}}</mat-icon>
+    </a>
+    <span>{{getTitle(routerOutlet)}}</span>
+    <span class="spacer"></span>
+    <a mat-icon-button *ngFor="let action of rightActions" [routerLink]="action.routerLink">
+      <mat-icon class="icon">{{action.icon}}</mat-icon>
+    </a>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="content">
+  <router-outlet #routerOutlet="outlet" (deactivate)="resetNavigation()"></router-outlet>
+</div>
