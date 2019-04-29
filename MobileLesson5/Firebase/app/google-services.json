@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "79395388975",
+    "firebase_url": "https://mobilelab5.firebaseio.com",
+    "project_id": "mobilelab5",
+    "storage_bucket": "mobilelab5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:79395388975:android:e3738caa8d384c79",
+        "android_client_info": {
+          "package_name": "com.vijaya.firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "79395388975-hue6bk5nl7ateuqvcp4rmd5rgrpfco27.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCyGDZPsP1vxbTmIVbDPPaJxC2jAvj8HZk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "79395388975-hue6bk5nl7ateuqvcp4rmd5rgrpfco27.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
